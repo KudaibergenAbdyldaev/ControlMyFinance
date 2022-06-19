@@ -11,7 +11,7 @@ import com.example.controlmyfinance.data.local_db.model.ProfitEntity
 
 @Database(
     entities = [ProfitEntity::class, ExpensesEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

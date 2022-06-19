@@ -2,6 +2,7 @@ package com.example.controlmyfinance.di
 
 import androidx.room.Room
 import com.example.controlmyfinance.data.local_db.AppDatabase
+import com.example.controlmyfinance.data.local_db.shared_pref.SharedPreference
 import com.example.controlmyfinance.data.mapper.ExpensesMapper
 import com.example.controlmyfinance.data.mapper.ProfitMapper
 import com.example.controlmyfinance.data.repository.ExpensesRepositoryImpl
@@ -13,6 +14,7 @@ import com.example.controlmyfinance.domain.usecase.GetProfitUseCase
 import com.example.controlmyfinance.domain.usecase.SetExpensesUseCase
 import com.example.controlmyfinance.domain.usecase.SetProfitUseCase
 import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
+import com.example.controlmyfinance.presentation.show_finance.ShowFinanceViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -45,8 +47,12 @@ val localDBModel = module {
     single {
         AppDatabase.getInstance(this.androidApplication()).profitDao()
     }
+    single {
+        SharedPreference(this.androidApplication())
+    }
 }
 
 val viewModelModule = module {
     viewModel { AddFinanceViewModel(get(), get()) }
+    viewModel { ShowFinanceViewModel() }
 }
