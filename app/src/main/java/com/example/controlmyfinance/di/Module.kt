@@ -41,6 +41,8 @@ val localDBModel = module {
     }
     single {
         AppDatabase.getInstance(this.androidApplication()).expensesDao()
+    }
+    single {
         AppDatabase.getInstance(this.androidApplication()).profitDao()
     }
 }
