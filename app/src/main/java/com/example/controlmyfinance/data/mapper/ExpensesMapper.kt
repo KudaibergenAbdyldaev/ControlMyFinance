@@ -8,13 +8,13 @@ class ExpensesMapper {
     fun mapExpensesEntityListToExpensesList(entity: List<ExpensesEntity>): List<Expenses> {
         val list = mutableListOf<Expenses>()
         for (i in entity){
-            list.add(Expenses(i.comment, i.sum))
+            list.add(Expenses(i.comment, i.sum, i.date))
         }
         return list
     }
 
-    fun mapExpensesToExpensesEntity(entity: Expenses): ExpensesEntity {
-        return ExpensesEntity(null, entity.comment, entity.sum)
+    fun mapExpensesToExpensesEntity(expenses: Expenses): ExpensesEntity {
+        return ExpensesEntity(null, expenses.comment, expenses.sum, expenses.date)
     }
 
 }

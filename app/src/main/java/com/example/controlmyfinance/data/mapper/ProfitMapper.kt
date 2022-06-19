@@ -8,13 +8,13 @@ class ProfitMapper {
     fun mapProfitEntityListToProfitList(entity: List<ProfitEntity>): List<Profit> {
         val list = mutableListOf<Profit>()
         for (i in entity){
-            list.add(Profit(i.comment, i.sum))
+            list.add(Profit(i.comment, i.sum, i.date))
         }
         return list
     }
 
-    fun mapProfitToProfitEntity(entity: Profit): ProfitEntity {
-        return ProfitEntity(null, entity.comment, entity.sum)
+    fun mapProfitToProfitEntity(model: Profit): ProfitEntity {
+        return ProfitEntity(null, model.comment, model.sum, model.date)
     }
 
 }

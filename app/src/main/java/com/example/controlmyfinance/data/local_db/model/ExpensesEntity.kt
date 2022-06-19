@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class ExpensesEntity(
     @PrimaryKey val id: Int?=null,
     val comment: String,
-    val sum: Double
+    val sum: Double,
+    val date: String
 )
