@@ -1,4 +1,4 @@
-package com.example.controlmyfinance.presentation
+package com.example.controlmyfinance.presentation.add_finance
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

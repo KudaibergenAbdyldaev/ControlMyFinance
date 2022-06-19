@@ -1,8 +1,8 @@
-package com.example.controlmyfinance.presentation
+package com.example.controlmyfinance.presentation.helper
 
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.example.controlmyfinance.R
+import com.example.controlmyfinance.presentation.main.MainActivity
 
 fun MainActivity.replaceFragment(fragment: Fragment){
     supportFragmentManager.beginTransaction()
