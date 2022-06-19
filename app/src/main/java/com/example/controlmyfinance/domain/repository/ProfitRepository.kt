@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface ProfitRepository {
 
     suspend fun getProfit(): Flow<List<Profit>>
-    suspend fun setProfit(profits: Profit)
+    suspend fun setProfit(profit: Profit)
 
 }
