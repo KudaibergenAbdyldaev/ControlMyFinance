@@ -4,4 +4,9 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="expenses">Expenses</string>
     <string name="profit">Profit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="comment">comment</string>
+    <string name="sum">sum</string>
+    <string name="save">Save</string>
 </resources>
