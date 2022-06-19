@@ -1,21 +1,22 @@
 package com.example.controlmyfinance.presentation.add_finance
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.controlmyfinance.R
+import com.example.controlmyfinance.databinding.FragmentAddFinanceBinding
+
+class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
+
+    private val binding: FragmentAddFinanceBinding by viewBinding()
+    private val viewModel: AddFinanceViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
 
-class AddFinanceFragment : Fragment() {
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_finance, container, false)
     }
+
 }

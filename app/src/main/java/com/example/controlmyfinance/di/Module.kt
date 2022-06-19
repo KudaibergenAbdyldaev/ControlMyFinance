@@ -12,7 +12,9 @@ import com.example.controlmyfinance.domain.usecase.GetExpensesUseCase
 import com.example.controlmyfinance.domain.usecase.GetProfitUseCase
 import com.example.controlmyfinance.domain.usecase.SetExpensesUseCase
 import com.example.controlmyfinance.domain.usecase.SetProfitUseCase
+import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val repositoryModule = module {
@@ -44,5 +46,5 @@ val localDBModel = module {
 }
 
 val viewModelModule = module {
-//    viewModel { LoginViewModel(get()) }
+    viewModel { AddFinanceViewModel(get(), get()) }
 }
