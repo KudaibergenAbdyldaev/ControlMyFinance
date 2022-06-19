@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ProfitDao {
     @Insert
-    suspend fun insertProfit(program: ProfitEntity)
+    fun insertProfit(program: ProfitEntity)
 
     @Query("SELECT * FROM profit")
-    suspend fun getProfitItems(): Flow<List<ProfitEntity>>
+    fun getProfitItems(): Flow<List<ProfitEntity>>
 
     @Delete
     fun deleteProfit(profitEntity: ProfitEntity)

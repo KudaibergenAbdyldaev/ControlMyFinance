@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ExpensesDao {
     @Insert
-    suspend fun insertExpenses(program: ExpensesEntity)
+    fun insertExpenses(program: ExpensesEntity)
 
     @Query("SELECT * FROM expenses")
-    suspend fun getExpensesItems(): Flow<List<ExpensesEntity>>
+    fun getExpensesItems(): Flow<List<ExpensesEntity>>
 
     @Delete
     fun deleteExpenses(ExpensesEntity: ExpensesEntity)
