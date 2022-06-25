@@ -43,7 +43,12 @@ class AddFinanceViewModel(
                     id = null
                 ))
             } else {
-                setProfitUseCase.setProfitUseCase(Profit(comment, sum, Date().toString()))
+                setProfitUseCase.setProfitUseCase(Profit(
+                    comment = comment,
+                    sum = sum,
+                    date = Date().toString(),
+                    id = null
+                ))
             }
             _isSuccessLiveData.postValue(true)
         }

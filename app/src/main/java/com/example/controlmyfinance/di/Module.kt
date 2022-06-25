@@ -27,6 +27,7 @@ val repositoryModule = module {
     single<ProfitRepository> { ProfitRepositoryImpl(get(), get()) }
     single { GetProfitUseCase(get()) }
     single { SetProfitUseCase(get()) }
+    single { DeleteProfitUseCase(get()) }
 }
 
 val mapperModule = module {
@@ -56,5 +57,5 @@ val viewModelModule = module {
     viewModel { AddFinanceViewModel(get(), get()) }
     viewModel { ShowFinanceViewModel() }
     viewModel { ExpensesViewModel(get(), get()) }
-    viewModel { ProfitViewModel(get()) }
+    viewModel { ProfitViewModel(get(), get()) }
 }

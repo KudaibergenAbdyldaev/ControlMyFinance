@@ -15,6 +15,6 @@ interface ProfitDao {
     @Query("SELECT * FROM profit")
     fun getProfitItems(): Flow<List<ProfitEntity>>
 
-    @Delete
-    fun deleteProfit(profitEntity: ProfitEntity)
+    @Query("DELETE FROM profit WHERE id=:id")
+    fun deleteProfit(id: Int)
 }

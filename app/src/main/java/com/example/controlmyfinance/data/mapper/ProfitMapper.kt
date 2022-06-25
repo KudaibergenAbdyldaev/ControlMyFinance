@@ -9,7 +9,7 @@ class ProfitMapper {
     fun mapProfitEntityListToProfitList(entity: List<ProfitEntity>): List<Profit> {
         val list = mutableListOf<Profit>()
         for (i in entity) {
-            list.add(Profit(i.comment, i.sum, i.date))
+            list.add(Profit(comment = i.comment, sum = i.sum, date = i.date, id = i.id ?: -1))
         }
         return list
     }

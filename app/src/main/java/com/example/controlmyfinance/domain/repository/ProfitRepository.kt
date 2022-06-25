@@ -7,5 +7,6 @@ interface ProfitRepository {
 
     suspend fun getProfit(): Flow<List<Profit>>
     suspend fun setProfit(profit: Profit)
+    suspend fun deleteItem(id: Int)
 
 }

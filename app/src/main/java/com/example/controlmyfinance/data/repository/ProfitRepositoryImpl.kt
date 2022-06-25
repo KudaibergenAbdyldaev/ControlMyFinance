@@ -20,4 +20,8 @@ class ProfitRepositoryImpl(
     override suspend fun setProfit(profit: Profit) {
         dao.insertProfit(mapper.mapProfitToProfitEntity(profit))
     }
+
+    override suspend fun deleteItem(id: Int) {
+        dao.deleteProfit(id)
+    }
 }
