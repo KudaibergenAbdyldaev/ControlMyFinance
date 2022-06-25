@@ -54,13 +54,43 @@ class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
         initBackButton()
         initSuccessAdded()
         initActiveButton()
+        initPlusButton()
+        initMinusButton()
         viewModel.setMode(arguments?.getInt(MODE) ?: -1)
     }
 
     private fun initAddButton() {
         binding.apply {
             add.setOnClickListener {
-                viewModel.setFinance(commentEdt.text.toString(), sumEdt.text.toString().toDouble())
+                viewModel.setFinance(
+                    commentEdt.text.toString(),
+                    sumEdt.text.toString().toDouble(),
+                    binding.amount.text.toString().toInt()
+                )
+            }
+        }
+    }
+
+    private fun initPlusButton() {
+        var i: Int
+        binding.apply {
+            plus.setOnClickListener {
+                i = amount.text.toString().toInt()
+                i++
+                amount.text = i.toString()
+            }
+        }
+    }
+
+    private fun initMinusButton() {
+        var i: Int
+        binding.apply {
+            minus.setOnClickListener {
+                i = amount.text.toString().toInt()
+                if (i > 1) {
+                    i--
+                    amount.text = i.toString()
+                }
             }
         }
     }

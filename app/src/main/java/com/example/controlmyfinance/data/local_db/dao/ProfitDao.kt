@@ -12,7 +12,7 @@ interface ProfitDao {
     @Insert
     fun insertProfit(program: ProfitEntity)
 
-    @Query("SELECT * FROM profit")
+    @Query("SELECT * FROM profit ORDER BY date DESC")
     fun getProfitItems(): Flow<List<ProfitEntity>>
 
     @Query("DELETE FROM profit WHERE id=:id")

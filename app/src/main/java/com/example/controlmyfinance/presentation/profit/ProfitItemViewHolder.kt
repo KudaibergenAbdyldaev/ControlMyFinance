@@ -10,6 +10,6 @@ class ProfitItemViewHolder(
     fun bind(profit: Profit){
         binding.comment.text = profit.comment
         binding.sum.text = profit.sum.toString()
-        binding.date.text = profit.date.toString()
+        binding.date.text = profit.date
     }
 }

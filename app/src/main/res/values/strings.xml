@@ -10,4 +10,7 @@
     <string name="sum">sum</string>
     <string name="save">Save</string>
     <string name="add_my_finance">Add My Finance</string>
+    <string name="plus">Plus</string>
+    <string name="minus">Minus</string>
+    <string name="amount">Amount</string>
 </resources>
