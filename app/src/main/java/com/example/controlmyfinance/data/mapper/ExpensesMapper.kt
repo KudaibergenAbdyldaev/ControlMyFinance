@@ -1,5 +1,6 @@
 package com.example.controlmyfinance.data.mapper
 
+import com.example.controlmyfinance.data.extentions.saveFormattedDate
 import com.example.controlmyfinance.data.local_db.model.ExpensesEntity
 import com.example.controlmyfinance.domain.model.Expenses
 import java.text.DateFormat
@@ -17,13 +18,8 @@ class ExpensesMapper {
     }
 
     fun mapExpensesToExpensesEntity(expenses: Expenses): ExpensesEntity {
-        val date = expenses.date
-        val originalFormat: DateFormat = SimpleDateFormat("E MMM dd HH:mm:ss z yyyy", Locale.US);
-        val targetFormat: DateFormat =
-            SimpleDateFormat("HH:mm dd-MMM-yyyy", Locale.US);
-        val parsedDate:Date = originalFormat.parse(date);
-        val formattedDate = targetFormat.format(parsedDate);
-        return ExpensesEntity(null, expenses.comment, expenses.sum, formattedDate)
+
+        return ExpensesEntity(null, expenses.comment, expenses.sum, expenses.date.saveFormattedDate())
     }
 
 }
