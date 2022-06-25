@@ -1,27 +1,27 @@
 package com.example.controlmyfinance.presentation.helper
 
-import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
-import com.example.controlmyfinance.R
-import com.example.controlmyfinance.presentation.main.MainActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 
-fun MainActivity.replaceFragment(fragment: Fragment){
-    supportFragmentManager.beginTransaction()
-        .replace(R.id.container, fragment)
-        .commitNow()
-}
-fun MainActivity.navigateBack(fragment: Fragment){
-    supportFragmentManager.beginTransaction()
-        .replace(R.id.container, fragment)
-        .addToBackStack(null)
-        .commit()
-}
+fun RecyclerView.setupSwipeListener(swiped: ((Int) -> Unit)) {
 
-fun MainActivity.handleOnBackPressed(fragment: Fragment){
-    val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            navigateBack(fragment)
+    val callback = object : ItemTouchHelper.SimpleCallback(
+        0,
+        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+    ) {
+
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            swiped.invoke(viewHolder.bindingAdapterPosition)
         }
     }
-    onBackPressedDispatcher.addCallback(this, callback)
+    val itemTouchHelper = ItemTouchHelper(callback)
+    itemTouchHelper.attachToRecyclerView(this)
 }

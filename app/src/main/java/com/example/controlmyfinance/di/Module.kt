@@ -9,10 +9,7 @@ import com.example.controlmyfinance.data.repository.ExpensesRepositoryImpl
 import com.example.controlmyfinance.data.repository.ProfitRepositoryImpl
 import com.example.controlmyfinance.domain.repository.ExpensesRepository
 import com.example.controlmyfinance.domain.repository.ProfitRepository
-import com.example.controlmyfinance.domain.usecase.GetExpensesUseCase
-import com.example.controlmyfinance.domain.usecase.GetProfitUseCase
-import com.example.controlmyfinance.domain.usecase.SetExpensesUseCase
-import com.example.controlmyfinance.domain.usecase.SetProfitUseCase
+import com.example.controlmyfinance.domain.usecase.*
 import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
 import com.example.controlmyfinance.presentation.expenses.ExpensesViewModel
 import com.example.controlmyfinance.presentation.profit.ProfitViewModel
@@ -25,6 +22,7 @@ val repositoryModule = module {
     single<ExpensesRepository> { ExpensesRepositoryImpl(get(), get()) }
     single { GetExpensesUseCase(get()) }
     single { SetExpensesUseCase(get()) }
+    single { DeleteExpensesUseCase(get()) }
 
     single<ProfitRepository> { ProfitRepositoryImpl(get(), get()) }
     single { GetProfitUseCase(get()) }
@@ -57,6 +55,6 @@ val localDBModel = module {
 val viewModelModule = module {
     viewModel { AddFinanceViewModel(get(), get()) }
     viewModel { ShowFinanceViewModel() }
-    viewModel { ExpensesViewModel(get()) }
+    viewModel { ExpensesViewModel(get(), get()) }
     viewModel { ProfitViewModel(get()) }
 }

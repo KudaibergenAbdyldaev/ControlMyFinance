@@ -15,6 +15,6 @@ interface ExpensesDao {
     @Query("SELECT * FROM expenses")
     fun getExpensesItems(): Flow<List<ExpensesEntity>>
 
-    @Delete
-    fun deleteExpenses(ExpensesEntity: ExpensesEntity)
+    @Query("DELETE FROM expenses WHERE id=:id")
+    fun deleteExpenses(id: Int)
 }

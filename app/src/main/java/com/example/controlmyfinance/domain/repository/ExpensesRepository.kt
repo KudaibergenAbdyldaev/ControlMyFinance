@@ -7,5 +7,6 @@ interface ExpensesRepository {
 
     suspend fun getExpenses(): Flow<List<Expenses>>
     suspend fun setExpenses(expenses: Expenses)
+    suspend fun deleteItem(id: Int)
 
 }

@@ -20,4 +20,8 @@ class ExpensesRepositoryImpl(
     override suspend fun setExpenses(expenses: Expenses) {
         dao.insertExpenses(mapper.mapExpensesToExpensesEntity(expenses))
     }
+
+    override suspend fun deleteItem(id: Int) {
+        dao.deleteExpenses(id)
+    }
 }

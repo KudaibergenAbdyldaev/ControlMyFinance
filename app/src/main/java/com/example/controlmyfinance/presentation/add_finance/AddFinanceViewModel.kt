@@ -36,7 +36,12 @@ class AddFinanceViewModel(
     fun setFinance(comment: String, sum: Double) {
         viewModelScope.launch(Dispatchers.IO) {
             if (_modeLiveData.value == MODE_EXPENSES) {
-                setExpensesUseCase.setExpenses(Expenses(comment, sum, Date().toString()))
+                setExpensesUseCase.setExpenses(Expenses(
+                    comment = comment,
+                    sum = sum,
+                    date = Date().toString(),
+                    id = null
+                ))
             } else {
                 setProfitUseCase.setProfitUseCase(Profit(comment, sum, Date().toString()))
             }
