@@ -13,4 +13,9 @@
     <string name="plus">Plus</string>
     <string name="minus">Minus</string>
     <string name="amount">Amount</string>
+    <string name="close">Close</string>
+    <string name="comment_v2">Comment:</string>
+    <string name="sum_v2">Sum:</string>
+    <string name="amount_v2">Amount:</string>
+    <string name="date">Date:</string>
 </resources>

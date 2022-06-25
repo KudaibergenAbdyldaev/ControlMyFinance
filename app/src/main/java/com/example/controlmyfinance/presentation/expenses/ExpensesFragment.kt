@@ -4,12 +4,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.controlmyfinance.R
 import com.example.controlmyfinance.databinding.FragmentExpensesBinding
-import com.example.controlmyfinance.domain.model.Expenses
+import com.example.controlmyfinance.presentation.detail.ExpensesDetailDialog
 import com.example.controlmyfinance.presentation.helper.setupSwipeListener
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -36,6 +34,9 @@ class ExpensesFragment : Fragment(R.layout.fragment_expenses) {
         binding.recyclerView.setupSwipeListener { position ->
             val item = listAdapter.currentList[position]
             viewModel.delete(item)
+        }
+        listAdapter.onItemClickListener = {
+            ExpensesDetailDialog(requireActivity(), it).show()
         }
     }
 

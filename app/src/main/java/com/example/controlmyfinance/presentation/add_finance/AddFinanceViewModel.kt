@@ -48,8 +48,7 @@ class AddFinanceViewModel(
                     comment = comment,
                     sum = sum,
                     date = Date().toString(),
-                    id = null,
-                    amount = amount
+                    id = null
                 ))
             }
             _isSuccessLiveData.postValue(true)

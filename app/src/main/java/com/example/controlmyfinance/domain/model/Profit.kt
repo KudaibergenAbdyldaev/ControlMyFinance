@@ -4,6 +4,5 @@ data class Profit(
     val comment: String,
     val sum: Double,
     val date: String,
-    val id: Int?,
-    val amount: Int
+    val id: Int?
 )

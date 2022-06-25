@@ -12,6 +12,5 @@ data class ProfitEntity(
     @PrimaryKey val id: Int? = null,
     val comment: String,
     val sum: Double,
-    val date: Date,
-    val amount: Int
+    val date: Date
 )

@@ -15,8 +15,7 @@ class ProfitMapper {
                     comment = i.comment,
                     sum = i.sum,
                     date = i.date.toString().saveFormattedDate(),
-                    id = i.id ?: -1,
-                    amount = i.amount
+                    id = i.id ?: -1
                 )
             )
         }
@@ -28,8 +27,7 @@ class ProfitMapper {
             id = null,
             comment = model.comment,
             sum = model.sum,
-            date = Date(),
-            amount = model.amount
+            date = Date()
         )
     }
 

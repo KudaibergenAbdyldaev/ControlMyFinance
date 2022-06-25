@@ -7,6 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.controlmyfinance.R
 import com.example.controlmyfinance.databinding.FragmentProfitBinding
+import com.example.controlmyfinance.presentation.detail.ExpensesDetailDialog
+import com.example.controlmyfinance.presentation.detail.ProfitDetailDialog
 import com.example.controlmyfinance.presentation.helper.setupSwipeListener
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -33,6 +35,9 @@ class ProfitFragment : Fragment(R.layout.fragment_profit) {
         binding.recyclerView.setupSwipeListener { position ->
             val item = listAdapter.currentList[position]
             viewModel.delete(item)
+        }
+        listAdapter.onItemClickListener = {
+            ProfitDetailDialog(requireActivity(), it).show()
         }
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -147,7 +148,12 @@ class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
                     binding.title.text = getString(R.string.expenses)
                 }
                 MODE_PROFIT -> {
-                    binding.title.text = getString(R.string.profit)
+
+                    binding.apply {
+                        title.text = getString(R.string.profit)
+                        incrementLayout.isVisible = false
+                        amountTxt.isVisible = false
+                    }
                 }
                 else -> {
                     throw RuntimeException("Unknown mode")

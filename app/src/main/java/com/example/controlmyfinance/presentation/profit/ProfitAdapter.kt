@@ -9,7 +9,7 @@ import com.example.controlmyfinance.domain.model.Profit
 class ProfitAdapter : ListAdapter<Profit, ProfitItemViewHolder>(ItemDiffCallback()) {
 
     var onShopItemLongClickListener: ((Profit) -> Unit)? = null
-    var onShopItemClickListener: ((Profit) -> Unit)? = null
+    var onItemClickListener: ((Profit) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfitItemViewHolder {
 //        val layout = when (viewType) {
@@ -30,7 +30,7 @@ class ProfitAdapter : ListAdapter<Profit, ProfitItemViewHolder>(ItemDiffCallback
 //            true
 //        }
         binding.root.setOnClickListener {
-            onShopItemClickListener?.invoke(shopItem)
+            onItemClickListener?.invoke(shopItem)
         }
     }
 
