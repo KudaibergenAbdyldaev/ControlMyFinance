@@ -1,34 +1,34 @@
 package com.example.controlmyfinance.presentation.profit
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.controlmyfinance.R
 import com.example.controlmyfinance.databinding.FragmentProfitBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class ProfitFragment : Fragment() {
+class ProfitFragment : Fragment(R.layout.fragment_profit) {
 
-    private var _binding: FragmentProfitBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        _binding = FragmentProfitBinding.inflate(inflater, container, false)
-        return binding.root
-
+    private val binding: FragmentProfitBinding by viewBinding()
+    private val viewModel: ProfitViewModel by viewModel()
+    private val listAdapter: ProfitAdapter by lazy {
+        ProfitAdapter()
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lifecycleScope.launch {
+            viewModel.getProfit().collect {
+                listAdapter.submitList(it)
+            }
+        }
+        binding.recyclerView.adapter = listAdapter
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }

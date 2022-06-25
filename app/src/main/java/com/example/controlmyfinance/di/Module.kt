@@ -15,6 +15,7 @@ import com.example.controlmyfinance.domain.usecase.SetExpensesUseCase
 import com.example.controlmyfinance.domain.usecase.SetProfitUseCase
 import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
 import com.example.controlmyfinance.presentation.expenses.ExpensesViewModel
+import com.example.controlmyfinance.presentation.profit.ProfitViewModel
 import com.example.controlmyfinance.presentation.show_finance.ShowFinanceViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -57,4 +58,5 @@ val viewModelModule = module {
     viewModel { AddFinanceViewModel(get(), get()) }
     viewModel { ShowFinanceViewModel() }
     viewModel { ExpensesViewModel(get()) }
+    viewModel { ProfitViewModel(get()) }
 }
