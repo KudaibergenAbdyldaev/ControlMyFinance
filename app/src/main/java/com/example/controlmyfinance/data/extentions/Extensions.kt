@@ -8,7 +8,7 @@ fun String.saveFormattedDate(): String{
     val date = this
     val originalFormat: DateFormat = SimpleDateFormat("E MMM dd HH:mm:ss z yyyy", Locale.US);
     val targetFormat: DateFormat =
-        SimpleDateFormat("HH:mm dd-MMM-yyyy", Locale.US);
+        SimpleDateFormat("HH:mm E dd-MM-yyyy");
     val parsedDate: Date = originalFormat.parse(date);
     val formattedDate = targetFormat.format(parsedDate);
     return formattedDate
