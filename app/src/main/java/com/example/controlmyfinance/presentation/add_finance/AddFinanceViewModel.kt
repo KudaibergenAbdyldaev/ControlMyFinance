@@ -20,21 +20,33 @@ class AddFinanceViewModel(
     private val _modeLiveData = MutableLiveData<Int>()
     val modeLiveData: LiveData<Int> = _modeLiveData
 
+    private val _isSuccessLiveData = MutableLiveData<Boolean>()
+    val isSuccessLiveData: LiveData<Boolean> = _isSuccessLiveData
+
     //if mode equals 0 is expenses
     //if mode equals 1 is profit
     fun setMode(position: Int) {
         _modeLiveData.value = position
     }
 
+    fun clearIsSuccess(){
+        _isSuccessLiveData.value = false
+    }
+
     fun setFinance(comment: String, sum: Double) {
         viewModelScope.launch(Dispatchers.IO) {
-
-            if (_modeLiveData.value == 0) {
-                setProfitUseCase.setProfitUseCase(Profit(comment, sum, Date().toString()))
-            } else {
+            if (_modeLiveData.value == MODE_EXPENSES) {
                 setExpensesUseCase.setExpenses(Expenses(comment, sum, Date().toString()))
+            } else {
+                setProfitUseCase.setProfitUseCase(Profit(comment, sum, Date().toString()))
             }
+            _isSuccessLiveData.postValue(true)
         }
+    }
+
+    companion object {
+        const val MODE_EXPENSES = 0
+        const val MODE_PROFIT = 1
     }
 
 }
