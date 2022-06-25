@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/expenses_item.xml" value="0.30885416666666665" />
+        <entry key="app/src/main/res/layout/finance_item.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_add_finance.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_expenses.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.3098958333333333" />
