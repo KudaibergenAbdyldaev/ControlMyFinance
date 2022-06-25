@@ -12,7 +12,7 @@ interface ExpensesDao {
     @Insert
     fun insertExpenses(program: ExpensesEntity)
 
-    @Query("SELECT * FROM expenses")
+    @Query("SELECT * FROM expenses ORDER BY date DESC")
     fun getExpensesItems(): Flow<List<ExpensesEntity>>
 
     @Query("DELETE FROM expenses WHERE id=:id")

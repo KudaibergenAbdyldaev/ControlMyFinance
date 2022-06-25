@@ -40,7 +40,8 @@ class AddFinanceViewModel(
                     comment = comment,
                     sum = sum,
                     date = Date().toString(),
-                    id = null
+                    id = null,
+                    amount = amount
                 ))
             } else {
                 setProfitUseCase.setProfitUseCase(Profit(
