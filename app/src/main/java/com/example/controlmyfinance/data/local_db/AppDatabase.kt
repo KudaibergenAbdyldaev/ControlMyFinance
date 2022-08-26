@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.controlmyfinance.data.local_db.dao.ExpensesDao
-import com.example.controlmyfinance.data.local_db.dao.ProfitDao
 import com.example.controlmyfinance.data.local_db.model.ExpensesEntity
 import com.example.controlmyfinance.data.local_db.model.ProfitEntity
 
@@ -16,7 +15,6 @@ import com.example.controlmyfinance.data.local_db.model.ProfitEntity
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun profitDao(): ProfitDao
     abstract fun expensesDao(): ExpensesDao
 
     companion object {

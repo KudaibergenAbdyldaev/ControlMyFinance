@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "820018977968",
+    "project_id": "controlmyfinance-f244d",
+    "storage_bucket": "controlmyfinance-f244d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820018977968:android:6e0dd5eb1a3f2541faaf75",
+        "android_client_info": {
+          "package_name": "com.example.controlmyfinance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820018977968-mtml78pbhc960b4hll25ei0l0tm5rscp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.controlmyfinance",
+            "certificate_hash": "9806f69a4667165e7b83c2281b8ab5fd78baeddf"
+          }
+        },
+        {
+          "client_id": "820018977968-jrbuj6lbvjt5frv2ifffl30je5cf6e91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACaxZWJAzaV9evaG8hi8UUPwavILU4aa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820018977968-jrbuj6lbvjt5frv2ifffl30je5cf6e91.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

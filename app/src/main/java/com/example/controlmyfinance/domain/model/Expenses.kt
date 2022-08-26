@@ -5,5 +5,6 @@ data class Expenses(
     val sum: Double,
     val date: String,
     val id: Int?,
-    val amount: Int
+    val amount: Int,
+    val isExpenses: Boolean
 )

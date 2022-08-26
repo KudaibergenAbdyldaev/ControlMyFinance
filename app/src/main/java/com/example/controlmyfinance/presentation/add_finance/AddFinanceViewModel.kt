@@ -5,15 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.controlmyfinance.domain.model.Expenses
-import com.example.controlmyfinance.domain.model.Profit
 import com.example.controlmyfinance.domain.usecase.SetExpensesUseCase
-import com.example.controlmyfinance.domain.usecase.SetProfitUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
 class AddFinanceViewModel(
-    private val setProfitUseCase: SetProfitUseCase,
     private val setExpensesUseCase: SetExpensesUseCase
 ) : ViewModel() {
 
@@ -41,14 +38,17 @@ class AddFinanceViewModel(
                     sum = sum,
                     date = Date().toString(),
                     id = null,
-                    amount = amount
+                    amount = amount,
+                    isExpenses = true
                 ))
             } else {
-                setProfitUseCase.setProfitUseCase(Profit(
+                setExpensesUseCase.setExpenses(Expenses(
                     comment = comment,
                     sum = sum,
                     date = Date().toString(),
-                    id = null
+                    id = null,
+                    amount = amount,
+                    isExpenses = false
                 ))
             }
             _isSuccessLiveData.postValue(true)

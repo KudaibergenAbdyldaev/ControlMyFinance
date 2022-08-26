@@ -59,9 +59,9 @@ class ShowFinanceFragment : Fragment(R.layout.fragment_show_finance) {
                 0 -> {
                     binding.viewPager.setCurrentItem(0, false)
                 }
-                1 -> {
-                    binding.viewPager.setCurrentItem(1, false)
-                }
+//                1 -> {
+//                    binding.viewPager.setCurrentItem(1, false)
+//                }
                 else -> {
                 }
             }
@@ -85,7 +85,7 @@ class ShowFinanceFragment : Fragment(R.layout.fragment_show_finance) {
             if (position == 0) {
                 tab.text = getString(R.string.expenses)
             } else {
-                tab.text = getString(R.string.profit)
+//                tab.text = getString(R.string.profit)
             }
         }.attach()
     }

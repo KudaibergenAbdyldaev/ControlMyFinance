@@ -4,15 +4,11 @@ import androidx.room.Room
 import com.example.controlmyfinance.data.local_db.AppDatabase
 import com.example.controlmyfinance.data.local_db.shared_pref.SharedPreference
 import com.example.controlmyfinance.data.mapper.ExpensesMapper
-import com.example.controlmyfinance.data.mapper.ProfitMapper
 import com.example.controlmyfinance.data.repository.ExpensesRepositoryImpl
-import com.example.controlmyfinance.data.repository.ProfitRepositoryImpl
 import com.example.controlmyfinance.domain.repository.ExpensesRepository
-import com.example.controlmyfinance.domain.repository.ProfitRepository
 import com.example.controlmyfinance.domain.usecase.*
 import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
 import com.example.controlmyfinance.presentation.expenses.ExpensesViewModel
-import com.example.controlmyfinance.presentation.profit.ProfitViewModel
 import com.example.controlmyfinance.presentation.show_finance.ShowFinanceViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -24,14 +20,9 @@ val repositoryModule = module {
     single { SetExpensesUseCase(get()) }
     single { DeleteExpensesUseCase(get()) }
 
-    single<ProfitRepository> { ProfitRepositoryImpl(get(), get()) }
-    single { GetProfitUseCase(get()) }
-    single { SetProfitUseCase(get()) }
-    single { DeleteProfitUseCase(get()) }
 }
 
 val mapperModule = module {
-    single { ProfitMapper() }
     single { ExpensesMapper() }
 }
 
@@ -46,16 +37,12 @@ val localDBModel = module {
         AppDatabase.getInstance(this.androidApplication()).expensesDao()
     }
     single {
-        AppDatabase.getInstance(this.androidApplication()).profitDao()
-    }
-    single {
         SharedPreference(this.androidApplication())
     }
 }
 
 val viewModelModule = module {
-    viewModel { AddFinanceViewModel(get(), get()) }
+    viewModel { AddFinanceViewModel(get()) }
     viewModel { ShowFinanceViewModel() }
     viewModel { ExpensesViewModel(get(), get()) }
-    viewModel { ProfitViewModel(get(), get()) }
 }
