@@ -3,8 +3,6 @@ package com.example.controlmyfinance.data.mapper
 import com.example.controlmyfinance.data.extentions.saveFormattedDate
 import com.example.controlmyfinance.data.local_db.model.ExpensesEntity
 import com.example.controlmyfinance.domain.model.Expenses
-import java.text.ParseException
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ExpensesMapper {
@@ -33,7 +31,8 @@ class ExpensesMapper {
             comment = expenses.comment,
             sum = expenses.sum,
             date = Date(),
-            amount = expenses.amount
+            amount = expenses.amount,
+            isExpenses = expenses.isExpenses
         )
     }
 }

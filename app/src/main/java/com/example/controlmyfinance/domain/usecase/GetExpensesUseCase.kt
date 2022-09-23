@@ -5,5 +5,6 @@ import com.example.controlmyfinance.domain.repository.ExpensesRepository
 class GetExpensesUseCase(private val repository: ExpensesRepository) {
 
     suspend fun getExpenses() = repository.getExpenses()
+    suspend fun getExpensesFromFirebaseAndSaveInCache() = repository.setExpensesFromFirebase()
 
 }

@@ -2,8 +2,12 @@ package com.example.controlmyfinance.presentation.expenses
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.controlmyfinance.R
@@ -37,11 +41,6 @@ class ExpensesFragment : Fragment(R.layout.fragment_expenses) {
         lifecycleScope.launch {
             viewModel.getExpenses().collect {
                 listAdapter.submitList(it)
-
-//                for (i in it){
-//                    database.child("myFinance").child(i.id.toString()).setValue(i)
-//                }
-
             }
         }
 

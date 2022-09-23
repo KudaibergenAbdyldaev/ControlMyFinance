@@ -1,6 +1,7 @@
 package com.example.controlmyfinance.presentation
 
 import android.app.Application
+import com.example.controlmyfinance.di.firebaseDB
 import com.example.controlmyfinance.di.localDBModel
 import com.example.controlmyfinance.di.mapperModule
 import com.example.controlmyfinance.di.repositoryModule
@@ -21,6 +22,7 @@ class App : Application() {
             modules(mapperModule)
             modules(viewModelModule)
             modules(localDBModel)
+            modules(firebaseDB)
         }
     }
 

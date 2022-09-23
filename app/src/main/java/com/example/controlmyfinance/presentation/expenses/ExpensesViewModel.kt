@@ -15,6 +15,13 @@ class ExpensesViewModel(
 
     suspend fun getExpenses() = getExpensesUseCase.getExpenses()
 
+    init {
+//        setExpensesFromFirebaseToCache()
+    }
+
+    private fun setExpensesFromFirebaseToCache() =
+        viewModelScope.launch { getExpensesUseCase.getExpensesFromFirebaseAndSaveInCache() }
+
     fun delete(expenses: Expenses) {
         viewModelScope.launch(Dispatchers.IO) {
             deleteExpensesUseCase.deleteExpenses(expenses.id ?: -1)

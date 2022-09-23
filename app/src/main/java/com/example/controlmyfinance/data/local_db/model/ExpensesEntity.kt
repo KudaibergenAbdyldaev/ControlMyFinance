@@ -13,5 +13,6 @@ data class ExpensesEntity(
     val comment: String,
     val sum: Double,
     val date: Date,
-    val amount: Int
+    val amount: Int,
+    val isExpenses: Boolean
 )

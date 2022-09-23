@@ -6,11 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.controlmyfinance.data.local_db.dao.ExpensesDao
 import com.example.controlmyfinance.data.local_db.model.ExpensesEntity
-import com.example.controlmyfinance.data.local_db.model.ProfitEntity
 
 @Database(
-    entities = [ProfitEntity::class, ExpensesEntity::class],
-    version = 3,
+    entities = [ExpensesEntity::class],
+    version = 4,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

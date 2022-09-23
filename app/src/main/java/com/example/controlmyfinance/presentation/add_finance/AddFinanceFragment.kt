@@ -5,45 +5,18 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.controlmyfinance.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.controlmyfinance.databinding.FragmentAddFinanceBinding
-import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel.Companion.MODE_EXPENSES
-import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel.Companion.MODE_PROFIT
-import com.example.controlmyfinance.presentation.helper.handleOnBackPressed
-import com.example.controlmyfinance.presentation.helper.navigateBack
-import com.example.controlmyfinance.presentation.main.MainActivity
-import com.example.controlmyfinance.presentation.show_finance.ShowFinanceFragment
-import java.lang.RuntimeException
 
 class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
 
     private val binding: FragmentAddFinanceBinding by viewBinding()
     private val viewModel: AddFinanceViewModel by viewModel()
 
-    private var mode = -1
-
-    companion object {
-        private const val MODE = "mode"
-
-        fun initAddFinanceFr(position: Int): AddFinanceFragment {
-            val fragment = AddFinanceFragment()
-            val bundle = Bundle()
-            bundle.putInt(MODE, position)
-            fragment.arguments = bundle
-            return fragment
-        }
-
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        navigateBack()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,13 +24,10 @@ class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
             hideKeyboardAndCleatFocus()
         }
         initAddButton()
-        initTitle()
-        initBackButton()
         initSuccessAdded()
         initActiveButton()
         initPlusButton()
         initMinusButton()
-        viewModel.setMode(arguments?.getInt(MODE) ?: -1)
     }
 
     private fun initAddButton() {
@@ -124,43 +94,6 @@ class AddFinanceFragment : Fragment(R.layout.fragment_add_finance) {
                 viewModel.clearIsSuccess()
             }
         }
-    }
-
-    private fun initBackButton() {
-        binding.back.setOnClickListener {
-            (requireActivity() as MainActivity).navigateBack(
-                ShowFinanceFragment.initFinanceFr(mode)
-            )
-        }
-    }
-
-    private fun navigateBack() {
-        (requireActivity() as MainActivity).handleOnBackPressed(
-            ShowFinanceFragment.initFinanceFr(arguments?.getInt(MODE) ?: -1)
-        )
-    }
-
-    private fun initTitle() {
-        viewModel.modeLiveData.observe(viewLifecycleOwner) {
-            mode = it
-            when (it) {
-                MODE_EXPENSES -> {
-                    binding.title.text = getString(R.string.expenses)
-                }
-                MODE_PROFIT -> {
-
-                    binding.apply {
-                        title.text = getString(R.string.profit)
-                        incrementLayout.isVisible = false
-                        amountTxt.isVisible = false
-                    }
-                }
-                else -> {
-                    throw RuntimeException("Unknown mode")
-                }
-            }
-        }
-
     }
 
     private fun clearFocus() {

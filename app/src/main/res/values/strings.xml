@@ -18,4 +18,5 @@
     <string name="sum_v2">Sum:</string>
     <string name="amount_v2">Amount:</string>
     <string name="date">Date:</string>
+    <string name="synchronize">Synchronize</string>
 </resources>

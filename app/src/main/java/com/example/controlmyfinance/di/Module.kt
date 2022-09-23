@@ -9,13 +9,13 @@ import com.example.controlmyfinance.domain.repository.ExpensesRepository
 import com.example.controlmyfinance.domain.usecase.*
 import com.example.controlmyfinance.presentation.add_finance.AddFinanceViewModel
 import com.example.controlmyfinance.presentation.expenses.ExpensesViewModel
-import com.example.controlmyfinance.presentation.show_finance.ShowFinanceViewModel
+import com.google.firebase.database.FirebaseDatabase
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single<ExpensesRepository> { ExpensesRepositoryImpl(get(), get()) }
+    single<ExpensesRepository> { ExpensesRepositoryImpl(get(), get(), get()) }
     single { GetExpensesUseCase(get()) }
     single { SetExpensesUseCase(get()) }
     single { DeleteExpensesUseCase(get()) }
@@ -41,8 +41,13 @@ val localDBModel = module {
     }
 }
 
+val firebaseDB = module{
+    single{
+        FirebaseDatabase.getInstance("https://controlmyfinance-f244d-default-rtdb.asia-southeast1.firebasedatabase.app/").reference;
+    }
+}
+
 val viewModelModule = module {
     viewModel { AddFinanceViewModel(get()) }
-    viewModel { ShowFinanceViewModel() }
     viewModel { ExpensesViewModel(get(), get()) }
 }
